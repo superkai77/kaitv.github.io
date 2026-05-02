@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAI TV - Pakej IPTV Terbaik Malaysia | 10,000+ Saluran HD/4K</title>
+    <meta name="description" content="KAI TV - Pakej IPTV terbaik di Malaysia dengan 10,000+ saluran, sukan langsung, filem & siri dalam kualiti 4K. Berlangganan sekarang dengan harga terjangkau.">
+    <meta name="theme-color" content="#0a0a14">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="KAI TV - Pakej IPTV Terbaik Malaysia">
+    <meta property="og:description" content="Hiburan tanpa had dengan 10,000+ saluran, sukan langsung, filem & siri dalam 4K">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kaitv.manus.space">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a14;
+            --bg-darker: #050508;
+            --bg-card: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0c0;
+            --accent-blue: #3b82f6;
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --border-color: rgba(139, 92, 246, 0.2);
+            --glow-blue: rgba(59, 130, 246, 0.3);
+            --glow-purple: rgba(168, 85, 247, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--bg-dark);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 0.75rem 2rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar-container {
+                padding: 0;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 70px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1rem;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== PACKAGES SECTION ===== */
+        .packages {
+            padding: 6rem 2rem;
+            background-color: var(--bg-dark);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-primary);
+        }
+
+        .packages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--glow-blue), var(--glow-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .package-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+        }
+
+        .package-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-popular {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+        }
+
+        .badge-best {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            color: white;
+        }
+
+        .package-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-features li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .package-button {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .packages {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .package-price {
+                font-size: 2rem;
+            }
+        }
+
+        /* ===== PAYMENT METHODS SECTION ===== */
+        .payment-methods {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(168, 85, 247, 0.03));
+        }
+
+        .payment-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .payment-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+
+        .payment-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .payment-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .payment-methods {
+                padding: 4rem 1rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+
+            .payment-item {
+                padding: 1.5rem;
+                min-height: 120px;
+            }
+
+            .payment-icon {
+                font-size: 2rem;
+            }
+
+            .payment-name {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            padding: 6rem 2rem;
+            background-color: var(--bg-dark);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.15);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials {
+                padding: 4rem 1rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(168, 85, 247, 0.03));
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(168, 85, 247, 0.05);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--accent-blue);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq {
+                padding: 4rem 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--bg-darker);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-whatsapp {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-whatsapp a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-whatsapp a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        .footer-copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-blue);
+        }
+
+        .package-summary {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .summary-row.total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.75rem;
+            margin-top: 0.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .payment-instructions {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .payment-instructions strong {
+            color: var(--accent-blue);
+        }
+
+        .qr-code-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .modal-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .modal-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ===== THANK YOU SECTION ===== */
+        .thank-you {
+            display: none;
+            padding: 6rem 2rem;
+            background-color: var(--bg-dark);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thank-you.active {
+            display: flex;
+        }
+
+        .thank-you-container {
+            max-width: 600px;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .thank-you h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .thank-you p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .order-details {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .order-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .order-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .order-detail-label {
+            font-weight: 600;
+        }
+
+        .order-detail-value {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .thank-you-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .thank-you-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .hidden {
+            display: none !important;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">KAI TV</div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#packages">Pakej</a></li>
+                <li><a href="#payment">Pembayaran</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#footer">Hubungi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Hiburan Tanpa Had</h1>
+            <p>10,000+ Saluran • Sukan Langsung • Filem & Siri • Kualiti 4K • Sokongan 24/7</p>
+            <button class="cta-button" onclick="scrollToPackages()">Lihat Pakej</button>
+        </div>
+    </section>
+
+    <!-- PACKAGES SECTION -->
+    <section class="packages" id="packages">
+        <h2 class="section-title">Pilih Pakej Anda</h2>
+        <div class="packages-grid">
+            <!-- Package 1 -->
+            <div class="package-card">
+                <h3 class="package-name">7 Hari</h3>
+                <div class="package-price">RM14</div>
+                <ul class="package-features">
+                    <li>1 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('7 Hari', 14, '1 Peranti')">Beli Sekarang</button>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="package-card">
+                <h3 class="package-name">1 Bulan</h3>
+                <div class="package-price">RM29</div>
+                <ul class="package-features">
+                    <li>1 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('1 Bulan', 29, '1 Peranti')">Beli Sekarang</button>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="package-card">
+                <h3 class="package-name">1 Bulan</h3>
+                <div class="package-price">RM44</div>
+                <ul class="package-features">
+                    <li>2 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('1 Bulan - 2 Peranti', 44, '2 Peranti')">Beli Sekarang</button>
+            </div>
+
+            <!-- Package 4 - POPULAR -->
+            <div class="package-card">
+                <div class="package-badge badge-popular">Popular</div>
+                <h3 class="package-name">3 Bulan</h3>
+                <div class="package-price">RM59</div>
+                <ul class="package-features">
+                    <li>1 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('3 Bulan', 59, '1 Peranti')">Beli Sekarang</button>
+            </div>
+
+            <!-- Package 5 -->
+            <div class="package-card">
+                <h3 class="package-name">3 Bulan</h3>
+                <div class="package-price">RM84</div>
+                <ul class="package-features">
+                    <li>2 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('3 Bulan - 2 Peranti', 84, '2 Peranti')">Beli Sekarang</button>
+            </div>
+
+            <!-- Package 6 -->
+            <div class="package-card">
+                <h3 class="package-name">6 Bulan</h3>
+                <div class="package-price">RM104</div>
+                <ul class="package-features">
+                    <li>1 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('6 Bulan', 104, '1 Peranti')">Beli Sekarang</button>
+            </div>
+
+            <!-- Package 7 - BEST VALUE -->
+            <div class="package-card">
+                <div class="package-badge badge-best">Nilai Terbaik</div>
+                <h3 class="package-name">400 Hari</h3>
+                <div class="package-price">RM254</div>
+                <ul class="package-features">
+                    <li>2 Peranti</li>
+                    <li>10,000+ Saluran</li>
+                    <li>HD/4K</li>
+                    <li>VOD Penuh</li>
+                    <li>Sokongan 24/7</li>
+                </ul>
+                <button class="package-button" onclick="openCheckout('400 Hari - 2 Peranti', 254, '2 Peranti')">Beli Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT METHODS SECTION -->
+    <section class="payment-methods" id="payment">
+        <h2 class="section-title">Kaedah Pembayaran</h2>
+        <div class="payment-grid">
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-name">FPX Maybank</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-name">FPX CIMB</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-name">FPX Public Bank</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-name">FPX RHB</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-name">FPX Hong Leong</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-name">FPX Bank Islam</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📱</div>
+                <div class="payment-name">Touch n Go eWallet</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📱</div>
+                <div class="payment-name">GrabPay</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📱</div>
+                <div class="payment-name">Boost</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📱</div>
+                <div class="payment-name">ShopeePay</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📲</div>
+                <div class="payment-name">DuitNow QR</div>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">💳</div>
+                <div class="payment-name">Pindah Bank Manual</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <h2 class="section-title">Testimoni Pelanggan</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"KAI TV adalah perkhidmatan terbaik yang pernah saya gunakan. Kualiti streaming sangat bagus dan tiada lag sama sekali. Sangat recommended!"</p>
+                <div class="testimonial-author">Ahmad Razak</div>
+                <div class="testimonial-role">Pelanggan Setia</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Harga sangat terjangkau dengan banyak pilihan saluran. Sokongan pelanggan mereka sangat responsif dan membantu. Terima kasih KAI TV!"</p>
+                <div class="testimonial-author">Siti Nurhaliza</div>
+                <div class="testimonial-role">Pengguna Premium</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Saya suka kerana boleh guna di 2 peranti sekaligus. Sempurna untuk keluarga. Sudah pakai 6 bulan dan sangat puas dengan servisnya."</p>
+                <div class="testimonial-author">Mohd Faizal</div>
+                <div class="testimonial-role">Pengguna Keluarga</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+        <h2 class="section-title">Soalan Lazim</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Bagaimanakah cara saya mendapatkan akses selepas membayar?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Selepas anda membayar dan menghubungi kami melalui WhatsApp dengan bukti pembayaran, admin kami akan memproses pesanan anda dalam masa 5-15 minit. Anda akan menerima maklumat login dan panduan pemasangan melalui WhatsApp.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Peranti apa saja yang disokong oleh KAI TV?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    KAI TV disokong di semua peranti utama termasuk: Smart TV (Android TV, Samsung, LG, Sony), Android Phone & Tablet, iPhone & iPad, Windows PC, Mac, Firestick, Roku, dan banyak lagi. Anda boleh memilih pakej 1 atau 2 peranti mengikut keperluan.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Apakah polisi pembatalan dan pengembalian dana?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Kami menawarkan jaminan 7 hari wang kembali jika anda tidak berpuas hati dengan perkhidmatan kami. Selepas 7 hari, tiada pengembalian dana tetapi anda boleh membatalkan langganan pada bila-bila masa tanpa penalti.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Adakah sokongan pelanggan tersedia 24/7?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Ya, pasukan sokongan pelanggan kami tersedia 24/7 melalui WhatsApp. Kami akan menjawab pertanyaan anda secepat mungkin. Waktu respons biasa adalah dalam 5-30 minit.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Bolehkah saya menggunakan satu akaun di lebih daripada 2 peranti?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Pakej kami membenarkan 1 atau 2 peranti streaming serentak bergantung pada pakej yang anda pilih. Jika anda memerlukan lebih banyak peranti, sila hubungi kami melalui WhatsApp untuk mendapatkan penawaran khusus.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Apakah kualiti streaming maksimum yang tersedia?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    KAI TV menyediakan streaming dalam kualiti HD dan 4K bergantung pada peranti dan kecepatan internet anda. Untuk pengalaman 4K terbaik, kami mengesyorkan kecepatan internet sekurang-kurangnya 25 Mbps.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-whatsapp">
+                <a href="https://wa.me/60177888030?text=Halo%20KAI%20TV!%20Saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20perkhidmatan%20anda." target="_blank">
+                    📱 Hubungi Kami via WhatsApp: +601 7788 8030
+                </a>
+            </div>
+            <div class="footer-copyright">
+                © 2026 KAI TV. Semua hak terpelihara. | Perkhidmatan IPTV Terbaik di Malaysia
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Pesanan Anda</h3>
+                <button class="modal-close" onclick="closeCheckout()">✕</button>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title">Ringkasan Pakej</div>
+                <div class="package-summary">
+                    <div class="summary-row">
+                        <span>Pakej:</span>
+                        <span id="summaryPackage">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Peranti:</span>
+                        <span id="summaryDevice">-</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Jumlah:</span>
+                        <span id="summaryPrice">RM0</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="checkoutForm" onsubmit="handleCheckout(event)">
+                <div class="modal-section">
+                    <div class="modal-section-title">Maklumat Peribadi</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Nama Penuh *</label>
+                        <input type="text" class="form-input" id="fullName" placeholder="Contoh: Ahmad Razak" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Alamat Email *</label>
+                        <input type="email" class="form-input" id="email" placeholder="contoh@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">No. Telefon WhatsApp *</label>
+                        <input type="tel" class="form-input" id="phone" placeholder="Contoh: 0177888030" required>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">Kaedah Pembayaran</div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Pilih Kaedah Pembayaran *</label>
+                        <select class="form-select" id="paymentMethod" onchange="updatePaymentInstructions()" required>
+                            <option value="">-- Pilih Kaedah Pembayaran --</option>
+                            <option value="FPX Maybank">FPX Maybank</option>
+                            <option value="FPX CIMB">FPX CIMB</option>
+                            <option value="FPX Public Bank">FPX Public Bank</option>
+                            <option value="FPX RHB">FPX RHB</option>
+                            <option value="FPX Hong Leong">FPX Hong Leong</option>
+                            <option value="FPX Bank Islam">FPX Bank Islam</option>
+                            <option value="Touch n Go eWallet">Touch n Go eWallet</option>
+                            <option value="GrabPay">GrabPay</option>
+                            <option value="Boost">Boost</option>
+                            <option value="ShopeePay">ShopeePay</option>
+                            <option value="DuitNow QR">DuitNow QR</option>
+                            <option value="Pindah Bank Manual">Pindah Bank Manual</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-section" id="paymentInstructionsSection" style="display: none;">
+                    <div class="modal-section-title">Arahan Pembayaran</div>
+                    <div class="payment-instructions" id="paymentInstructions">
+                        Sila pilih kaedah pembayaran untuk melihat arahan.
+                    </div>
+                    <div class="qr-code-placeholder" id="qrCodePlaceholder" style="display: none;">
+                        📱 Scan DuitNow QR Code<br>
+                        (Placeholder - Guna aplikasi banking anda)
+                    </div>
+                </div>
+
+                <button type="submit" class="modal-button">Saya Sudah Bayar - Hantar Resit via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- THANK YOU SECTION -->
+    <section class="thank-you" id="thankYouSection">
+        <div class="thank-you-container">
+            <div class="thank-you-icon">✓</div>
+            <h2>Terima Kasih!</h2>
+            <p>Pesanan anda telah dihantar ke WhatsApp kami. Admin kami akan memproses pesanan anda dalam masa 5-15 minit.</p>
+            
+            <div class="order-details">
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Order ID:</span>
+                    <span class="order-detail-value" id="orderIdDisplay">-</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Nama:</span>
+                    <span class="order-detail-value" id="orderNameDisplay">-</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Pakej:</span>
+                    <span class="order-detail-value" id="orderPackageDisplay">-</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="order-detail-label">Jumlah:</span>
+                    <span class="order-detail-value" id="orderPriceDisplay">-</span>
+                </div>
+            </div>
+
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Sila tunggu balasan dari admin kami di WhatsApp untuk mendapatkan maklumat login dan panduan pemasangan.
+            </p>
+
+            <button class="thank-you-button" onclick="backToHome()">Kembali ke Halaman Utama</button>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll to packages
+        function scrollToPackages() {
+            document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Checkout Modal Functions
+        let selectedPackage = '';
+        let selectedPrice = 0;
+        let selectedDevice = '';
+
+        function openCheckout(packageName, price, device) {
+            selectedPackage = packageName;
+            selectedPrice = price;
+            selectedDevice = device;
+
+            document.getElementById('summaryPackage').textContent = packageName;
+            document.getElementById('summaryDevice').textContent = device;
+            document.getElementById('summaryPrice').textContent = 'RM' + price;
+
+            document.getElementById('checkoutModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            document.getElementById('checkoutForm').reset();
+            document.getElementById('paymentInstructionsSection').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('checkoutModal').addEventListener('click', (e) => {
+            if (e.target.id === 'checkoutModal') {
+                closeCheckout();
+            }
+        });
+
+        // Update Payment Instructions
+        function updatePaymentInstructions() {
+            const method = document.getElementById('paymentMethod').value;
+            const section = document.getElementById('paymentInstructionsSection');
+            const instructions = document.getElementById('paymentInstructions');
+            const qrPlaceholder = document.getElementById('qrCodePlaceholder');
+
+            if (!method) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            qrPlaceholder.style.display = 'none';
+
+            const instructionsMap = {
+                'FPX Maybank': '<strong>Maybank FPX</strong><br>Sila buka aplikasi Maybank anda dan lakukan pemindahan kepada:<br><strong>Akaun: 1234567890</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'FPX CIMB': '<strong>CIMB FPX</strong><br>Sila buka aplikasi CIMB anda dan lakukan pemindahan kepada:<br><strong>Akaun: 0987654321</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'FPX Public Bank': '<strong>Public Bank FPX</strong><br>Sila buka aplikasi Public Bank anda dan lakukan pemindahan kepada:<br><strong>Akaun: 1122334455</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'FPX RHB': '<strong>RHB FPX</strong><br>Sila buka aplikasi RHB anda dan lakukan pemindahan kepada:<br><strong>Akaun: 5544332211</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'FPX Hong Leong': '<strong>Hong Leong FPX</strong><br>Sila buka aplikasi Hong Leong anda dan lakukan pemindahan kepada:<br><strong>Akaun: 9876543210</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'FPX Bank Islam': '<strong>Bank Islam FPX</strong><br>Sila buka aplikasi Bank Islam anda dan lakukan pemindahan kepada:<br><strong>Akaun: 1357924680</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'Touch n Go eWallet': '<strong>Touch n Go eWallet</strong><br>Sila buka aplikasi Touch n Go anda dan scan QR code atau pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'GrabPay': '<strong>GrabPay</strong><br>Sila buka aplikasi Grab anda dan pilih GrabPay, kemudian pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'Boost': '<strong>Boost</strong><br>Sila buka aplikasi Boost anda dan pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'ShopeePay': '<strong>ShopeePay</strong><br>Sila buka aplikasi Shopee anda dan pilih ShopeePay, kemudian pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
+                'DuitNow QR': '<strong>DuitNow QR</strong><br>Sila scan QR code di bawah menggunakan aplikasi banking anda:',
+                'Pindah Bank Manual': '<strong>Pindah Bank Manual</strong><br>Sila lakukan pemindahan bank ke:<br><strong>Akaun: 1234567890</strong><br>Atas Nama: <strong>KAI TV</strong><br>Bank: <strong>Maybank</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>'
+            };
+
+            instructions.innerHTML = instructionsMap[method] || 'Arahan tidak tersedia';
+            
+            if (method === 'DuitNow QR') {
+                qrPlaceholder.style.display = 'block';
+            }
+        }
+
+        // Generate Order ID
+        function generateOrderId() {
+            const timestamp = Date.now().toString().slice(-5);
+            return 'KAI' + timestamp;
+        }
+
+        // Handle Checkout
+        function handleCheckout(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            if (!fullName || !email || !phone || !paymentMethod) {
+                alert('Sila isi semua maklumat yang diperlukan.');
+                return;
+            }
+
+            const orderId = generateOrderId();
+
+            // Build WhatsApp message
+            const message = `Hi KAI TV! Saya nak confirm pesanan:\n\nOrder ID: #${orderId}\nNama: ${fullName}\nEmail: ${email}\nTelefon: ${phone}\nPakej: ${selectedPackage}\nHarga: RM${selectedPrice}\nKaedah Bayaran: ${paymentMethod}\n\nResit pembayaran akan saya hantar selepas ini. Terima kasih!`;
+
+            // Encode message for WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/60177888030?text=${encodedMessage}`;
+
+            // Display thank you section
+            document.getElementById('orderIdDisplay').textContent = '#' + orderId;
+            document.getElementById('orderNameDisplay').textContent = fullName;
+            document.getElementById('orderPackageDisplay').textContent = selectedPackage;
+            document.getElementById('orderPriceDisplay').textContent = 'RM' + selectedPrice;
+
+            // Close modal and show thank you
+            closeCheckout();
+            document.getElementById('thankYouSection').classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Open WhatsApp in new tab
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 500);
+        }
+
+        // Back to Home
+        function backToHome() {
+            document.getElementById('thankYouSection').classList.remove('active');
+            document.getElementById('checkoutForm').reset();
+            document.body.style.overflow = 'auto';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
