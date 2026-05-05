@@ -1,1589 +1,990 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAI TV - Pakej IPTV Terbaik Malaysia | 10,000+ Saluran HD/4K</title>
-    <meta name="description" content="KAI TV - Pakej IPTV terbaik di Malaysia dengan 10,000+ saluran, sukan langsung, filem & siri dalam kualiti 4K. Berlangganan sekarang dengan harga terjangkau.">
-    <meta name="theme-color" content="#0a0a14">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="KAI TV - Pakej IPTV Terbaik Malaysia">
-    <meta property="og:description" content="Hiburan tanpa had dengan 10,000+ saluran, sukan langsung, filem & siri dalam 4K">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kaitv.manus.space">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <meta name="description" content="EES Task Manager - Manage tasks and projects efficiently">
+    <meta name="theme-color" content="#1e3a8a">
+    <link rel="manifest" href="manifest.json">
+    <title>EES Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --bg-dark: #0a0a14;
-            --bg-darker: #050508;
-            --bg-card: #1a1a2e;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0c0;
-            --accent-blue: #3b82f6;
-            --accent-purple: #a855f7;
-            --accent-pink: #ec4899;
-            --border-color: rgba(139, 92, 246, 0.2);
-            --glow-blue: rgba(59, 130, 246, 0.3);
-            --glow-purple: rgba(168, 85, 247, 0.3);
+            --primary: #1e3a8a;
+            --accent: #f97316;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
-
-        /* ===== NAVBAR ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            padding: 1rem 2rem;
+        .primary-bg { background-color: var(--primary); }
+        .accent-bg { background-color: var(--accent); }
+        .primary-text { color: var(--primary); }
+        .accent-text { color: var(--accent); }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 8px;
+            border-radius: 4px;
         }
-
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent-blue);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0;
-                background: var(--bg-dark);
-                border-bottom: 1px solid var(--border-color);
-                padding: 1rem 0;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .nav-menu a {
-                padding: 0.75rem 2rem;
-                border-bottom: 1px solid var(--border-color);
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .navbar {
-                padding: 1rem;
-            }
-
-            .navbar-container {
-                padding: 0;
-            }
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            margin-top: 70px;
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(168, 85, 247, 0.05));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
+        .badge {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 1rem;
-                margin-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-
-        /* ===== PACKAGES SECTION ===== */
-        .packages {
-            padding: 6rem 2rem;
-            background-color: var(--bg-dark);
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-primary);
-        }
-
-        .packages-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .package-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .package-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--glow-blue), var(--glow-purple));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .package-card:hover {
-            border-color: var(--accent-purple);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
-        }
-
-        .package-card:hover::before {
-            opacity: 0.05;
-        }
-
-        .package-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .badge-popular {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-        }
-
-        .badge-best {
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            color: white;
-        }
-
-        .package-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .package-price {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        .package-features li {
-            padding: 0.75rem 0;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
-            display: flex;
-            align-items: center;
-        }
-
-        .package-features li:last-child {
-            border-bottom: none;
-        }
-
-        .package-features li::before {
-            content: '✓';
-            color: var(--accent-blue);
-            font-weight: 700;
-            margin-right: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .package-button {
-            width: 100%;
-            padding: 0.9rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .package-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .packages {
-                padding: 4rem 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .packages-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .package-price {
-                font-size: 2rem;
-            }
-        }
-
-        /* ===== PAYMENT METHODS SECTION ===== */
-        .payment-methods {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(168, 85, 247, 0.03));
-        }
-
-        .payment-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-        }
-
-        .payment-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            padding: 4px 12px;
             border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 150px;
-        }
-
-        .payment-item:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
-        }
-
-        .payment-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .payment-name {
-            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
             font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-primary);
         }
-
-        @media (max-width: 768px) {
-            .payment-methods {
-                padding: 4rem 1rem;
-            }
-
-            .payment-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1rem;
-            }
-
-            .payment-item {
-                padding: 1.5rem;
-                min-height: 120px;
-            }
-
-            .payment-icon {
-                font-size: 2rem;
-            }
-
-            .payment-name {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* ===== TESTIMONIALS SECTION ===== */
-        .testimonials {
-            padding: 6rem 2rem;
-            background-color: var(--bg-dark);
-        }
-
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--accent-purple);
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.15);
-        }
-
-        .testimonial-stars {
-            color: #fbbf24;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-text {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .testimonial-role {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .testimonials {
-                padding: 4rem 1rem;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ===== FAQ SECTION ===== */
-        .faq {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(168, 85, 247, 0.03));
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-
-        .faq-question:hover {
-            background: rgba(168, 85, 247, 0.05);
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-            color: var(--accent-blue);
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 1.5rem 1.5rem 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .faq {
-                padding: 4rem 1rem;
-            }
-
-            .faq-question {
-                padding: 1rem;
-                font-size: 0.95rem;
-            }
-
-            .faq-answer {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--bg-darker);
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-whatsapp {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-whatsapp a {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .footer-whatsapp a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
-        }
-
-        .footer-copyright {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        /* ===== MODAL ===== */
-        .modal {
+        .badge-success { background-color: #d1fae5; color: #065f46; }
+        .badge-warning { background-color: #fef3c7; color: #92400e; }
+        .badge-danger { background-color: #fee2e2; color: #991b1b; }
+        .badge-info { background-color: #dbeafe; color: #1e40af; }
+        .badge-high { background-color: #fee2e2; color: #991b1b; }
+        .badge-medium { background-color: #fef3c7; color: #92400e; }
+        .badge-low { background-color: #d1fae5; color: #065f46; }
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 50;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
         }
-
-        .modal.active {
+        .modal-overlay.active {
             display: flex;
-            animation: fadeIn 0.3s ease;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         .modal-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
             max-width: 500px;
-            width: 100%;
+            width: 90%;
             max-height: 90vh;
             overflow-y: auto;
-            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-
-        @keyframes slideUp {
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .progress-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .progress-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .progress-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            z-index: 100;
+            animation: slideIn 0.3s ease-out;
+        }
+        .toast.success { background-color: var(--success); }
+        .toast.error { background-color: var(--danger); }
+        @keyframes slideIn {
             from {
-                transform: translateY(50px);
+                transform: translateX(400px);
                 opacity: 0;
             }
             to {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
             }
         }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
         }
-
-        .modal-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
-
-        .modal-close {
-            background: none;
+        .tab-button {
+            padding: 12px 24px;
             border: none;
-            color: var(--text-secondary);
-            font-size: 1.5rem;
+            background: transparent;
             cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--text-primary);
-        }
-
-        .modal-section {
-            margin-bottom: 2rem;
-        }
-
-        .modal-section-title {
-            font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-blue);
-        }
-
-        .package-summary {
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .summary-row.total {
-            border-top: 1px solid var(--border-color);
-            padding-top: 0.75rem;
-            margin-top: 0.75rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-input,
-        .form-select {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            color: #6b7280;
+            border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
         }
-
-        .form-input:focus,
-        .form-select:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            background: rgba(59, 130, 246, 0.1);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
         }
-
-        .form-input::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .payment-instructions {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .payment-instructions strong {
-            color: var(--accent-blue);
-        }
-
-        .qr-code-placeholder {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .modal-button {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .modal-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
-        }
-
-        .modal-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* ===== THANK YOU SECTION ===== */
-        .thank-you {
+        .tab-content {
             display: none;
-            padding: 6rem 2rem;
-            background-color: var(--bg-dark);
-            text-align: center;
-            min-height: 100vh;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .task-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+        .task-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .task-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            align-items: center;
+        }
+        @media (min-width: 1024px) {
+            .task-row {
+                grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr auto;
+            }
+        }
+        .task-row:last-child {
+            border-bottom: none;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 12px;
+            overflow-y: auto;
+            max-height: 120px;
+        }
+        .calendar-day.other-month {
+            background-color: #f9fafb;
+            color: #9ca3af;
+        }
+        .calendar-task-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 2px;
+        }
+        .setup-screen {
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
-
-        .thank-you.active {
-            display: flex;
-        }
-
-        .thank-you-container {
+        .setup-content {
             max-width: 600px;
         }
-
-        .thank-you-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: bounce 0.6s ease;
+        .setup-content h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+        .setup-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
-
-        .thank-you h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .setup-content code {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
         }
-
-        .thank-you p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
         }
-
-        .order-details {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: left;
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-
-        .order-detail-row {
+        .dashboard-card h3 {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .dashboard-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .dashboard-card.accent .value {
+            color: var(--accent);
+        }
+        .dashboard-card.danger .value {
+            color: var(--danger);
+        }
+        .dashboard-card.success .value {
+            color: var(--success);
+        }
+        .dashboard-card.warning .value {
+            color: var(--warning);
+        }
+        .action-buttons {
             display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            gap: 8px;
+            flex-wrap: wrap;
         }
-
-        .order-detail-row:last-child {
-            border-bottom: none;
-        }
-
-        .order-detail-label {
-            font-weight: 600;
-        }
-
-        .order-detail-value {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .thank-you-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
+        .btn {
+            padding: 8px 16px;
             border: none;
+            border-radius: 6px;
             cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
             transition: all 0.3s ease;
         }
-
-        .thank-you-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
         }
-
-        /* ===== UTILITY CLASSES ===== */
-        .hidden {
-            display: none !important;
+        .btn-primary:hover {
+            background-color: #1e40af;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
+        .btn-accent:hover {
+            background-color: #ea580c;
+        }
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: var(--primary);
+        }
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #059669;
+        }
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6b7280;
+        }
+        .no-tasks {
+            text-align: center;
+            padding: 40px;
+            color: #9ca3af;
         }
     </style>
 </head>
-<body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo">KAI TV</div>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#packages">Pakej</a></li>
-                <li><a href="#payment">Pembayaran</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#footer">Hubungi</a></li>
-            </ul>
+<body class="bg-gray-50">
+    <div id="setupScreen" class="setup-screen">
+        <div class="setup-content">
+            <h1>⚙️ Setup Required</h1>
+            <p>The Google Apps Script URL is not configured.</p>
+            <p>Please update the <code>GOOGLE_SCRIPT_URL</code> in the HTML file with your deployed Web App URL.</p>
+            <p>For detailed instructions, refer to <code>SETUP_GUIDE.md</code>.</p>
         </div>
-    </nav>
+    </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-container">
-            <h1>Hiburan Tanpa Had</h1>
-            <p>10,000+ Saluran • Sukan Langsung • Filem & Siri • Kualiti 4K • Sokongan 24/7</p>
-            <button class="cta-button" onclick="scrollToPackages()">Lihat Pakej</button>
-        </div>
-    </section>
-
-    <!-- PACKAGES SECTION -->
-    <section class="packages" id="packages">
-        <h2 class="section-title">Pilih Pakej Anda</h2>
-        <div class="packages-grid">
-            <!-- Package 1 -->
-            <div class="package-card">
-                <h3 class="package-name">7 Hari</h3>
-                <div class="package-price">RM14</div>
-                <ul class="package-features">
-                    <li>1 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('7 Hari', 14, '1 Peranti')">Beli Sekarang</button>
+    <div id="appContainer" style="display: none;">
+        <!-- Header -->
+        <header class="primary-bg text-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold">📋 EES Task Manager</h1>
+                    <p class="text-blue-200 text-sm">Manage your team's projects efficiently</p>
+                </div>
+                <div class="flex gap-4">
+                    <button id="refreshBtn" class="btn btn-accent btn-small" onclick="refreshData()">🔄 Refresh</button>
+                    <button id="addTaskBtn" class="btn btn-accent" onclick="openAddTaskModal()">+ Add Task</button>
+                </div>
             </div>
+        </header>
 
-            <!-- Package 2 -->
-            <div class="package-card">
-                <h3 class="package-name">1 Bulan</h3>
-                <div class="package-price">RM29</div>
-                <ul class="package-features">
-                    <li>1 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('1 Bulan', 29, '1 Peranti')">Beli Sekarang</button>
-            </div>
-
-            <!-- Package 3 -->
-            <div class="package-card">
-                <h3 class="package-name">1 Bulan</h3>
-                <div class="package-price">RM44</div>
-                <ul class="package-features">
-                    <li>2 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('1 Bulan - 2 Peranti', 44, '2 Peranti')">Beli Sekarang</button>
-            </div>
-
-            <!-- Package 4 - POPULAR -->
-            <div class="package-card">
-                <div class="package-badge badge-popular">Popular</div>
-                <h3 class="package-name">3 Bulan</h3>
-                <div class="package-price">RM59</div>
-                <ul class="package-features">
-                    <li>1 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('3 Bulan', 59, '1 Peranti')">Beli Sekarang</button>
-            </div>
-
-            <!-- Package 5 -->
-            <div class="package-card">
-                <h3 class="package-name">3 Bulan</h3>
-                <div class="package-price">RM84</div>
-                <ul class="package-features">
-                    <li>2 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('3 Bulan - 2 Peranti', 84, '2 Peranti')">Beli Sekarang</button>
-            </div>
-
-            <!-- Package 6 -->
-            <div class="package-card">
-                <h3 class="package-name">6 Bulan</h3>
-                <div class="package-price">RM104</div>
-                <ul class="package-features">
-                    <li>1 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('6 Bulan', 104, '1 Peranti')">Beli Sekarang</button>
-            </div>
-
-            <!-- Package 7 - BEST VALUE -->
-            <div class="package-card">
-                <div class="package-badge badge-best">Nilai Terbaik</div>
-                <h3 class="package-name">400 Hari</h3>
-                <div class="package-price">RM254</div>
-                <ul class="package-features">
-                    <li>2 Peranti</li>
-                    <li>10,000+ Saluran</li>
-                    <li>HD/4K</li>
-                    <li>VOD Penuh</li>
-                    <li>Sokongan 24/7</li>
-                </ul>
-                <button class="package-button" onclick="openCheckout('400 Hari - 2 Peranti', 254, '2 Peranti')">Beli Sekarang</button>
+        <!-- Tabs Navigation -->
+        <div class="max-w-7xl mx-auto px-4 mt-6 border-b border-gray-200">
+            <div class="flex gap-4 overflow-x-auto">
+                <button class="tab-button active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+                <button class="tab-button" onclick="switchTab('allTasks')">📝 All Tasks</button>
+                <button class="tab-button" onclick="switchTab('myTasks')">👤 My Tasks</button>
+                <button class="tab-button" onclick="switchTab('calendar')">📅 Calendar</button>
             </div>
         </div>
-    </section>
 
-    <!-- PAYMENT METHODS SECTION -->
-    <section class="payment-methods" id="payment">
-        <h2 class="section-title">Kaedah Pembayaran</h2>
-        <div class="payment-grid">
-            <div class="payment-item">
-                <div class="payment-icon">🏦</div>
-                <div class="payment-name">FPX Maybank</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">🏦</div>
-                <div class="payment-name">FPX CIMB</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">🏦</div>
-                <div class="payment-name">FPX Public Bank</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">🏦</div>
-                <div class="payment-name">FPX RHB</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">🏦</div>
-                <div class="payment-name">FPX Hong Leong</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">🏦</div>
-                <div class="payment-name">FPX Bank Islam</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">📱</div>
-                <div class="payment-name">Touch n Go eWallet</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">📱</div>
-                <div class="payment-name">GrabPay</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">📱</div>
-                <div class="payment-name">Boost</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">📱</div>
-                <div class="payment-name">ShopeePay</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">📲</div>
-                <div class="payment-name">DuitNow QR</div>
-            </div>
-            <div class="payment-item">
-                <div class="payment-icon">💳</div>
-                <div class="payment-name">Pindah Bank Manual</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials">
-        <h2 class="section-title">Testimoni Pelanggan</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"KAI TV adalah perkhidmatan terbaik yang pernah saya gunakan. Kualiti streaming sangat bagus dan tiada lag sama sekali. Sangat recommended!"</p>
-                <div class="testimonial-author">Ahmad Razak</div>
-                <div class="testimonial-role">Pelanggan Setia</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Harga sangat terjangkau dengan banyak pilihan saluran. Sokongan pelanggan mereka sangat responsif dan membantu. Terima kasih KAI TV!"</p>
-                <div class="testimonial-author">Siti Nurhaliza</div>
-                <div class="testimonial-role">Pengguna Premium</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Saya suka kerana boleh guna di 2 peranti sekaligus. Sempurna untuk keluarga. Sudah pakai 6 bulan dan sangat puas dengan servisnya."</p>
-                <div class="testimonial-author">Mohd Faizal</div>
-                <div class="testimonial-role">Pengguna Keluarga</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="faq" id="faq">
-        <h2 class="section-title">Soalan Lazim</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Bagaimanakah cara saya mendapatkan akses selepas membayar?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    Selepas anda membayar dan menghubungi kami melalui WhatsApp dengan bukti pembayaran, admin kami akan memproses pesanan anda dalam masa 5-15 minit. Anda akan menerima maklumat login dan panduan pemasangan melalui WhatsApp.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Peranti apa saja yang disokong oleh KAI TV?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    KAI TV disokong di semua peranti utama termasuk: Smart TV (Android TV, Samsung, LG, Sony), Android Phone & Tablet, iPhone & iPad, Windows PC, Mac, Firestick, Roku, dan banyak lagi. Anda boleh memilih pakej 1 atau 2 peranti mengikut keperluan.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Apakah polisi pembatalan dan pengembalian dana?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    Kami menawarkan jaminan 7 hari wang kembali jika anda tidak berpuas hati dengan perkhidmatan kami. Selepas 7 hari, tiada pengembalian dana tetapi anda boleh membatalkan langganan pada bila-bila masa tanpa penalti.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Adakah sokongan pelanggan tersedia 24/7?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    Ya, pasukan sokongan pelanggan kami tersedia 24/7 melalui WhatsApp. Kami akan menjawab pertanyaan anda secepat mungkin. Waktu respons biasa adalah dalam 5-30 minit.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Bolehkah saya menggunakan satu akaun di lebih daripada 2 peranti?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    Pakej kami membenarkan 1 atau 2 peranti streaming serentak bergantung pada pakej yang anda pilih. Jika anda memerlukan lebih banyak peranti, sila hubungi kami melalui WhatsApp untuk mendapatkan penawaran khusus.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Apakah kualiti streaming maksimum yang tersedia?</span>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    KAI TV menyediakan streaming dalam kualiti HD dan 4K bergantung pada peranti dan kecepatan internet anda. Untuk pengalaman 4K terbaik, kami mengesyorkan kecepatan internet sekurang-kurangnya 25 Mbps.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer" id="footer">
-        <div class="footer-content">
-            <div class="footer-whatsapp">
-                <a href="https://wa.me/60177888030?text=Halo%20KAI%20TV!%20Saya%20ingin%20mengetahui%20lebih%20lanjut%20tentang%20perkhidmatan%20anda." target="_blank">
-                    📱 Hubungi Kami via WhatsApp: +601 7788 8030
-                </a>
-            </div>
-            <div class="footer-copyright">
-                © 2026 KAI TV. Semua hak terpelihara. | Perkhidmatan IPTV Terbaik di Malaysia
-            </div>
-        </div>
-    </footer>
-
-    <!-- CHECKOUT MODAL -->
-    <div class="modal" id="checkoutModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Pesanan Anda</h3>
-                <button class="modal-close" onclick="closeCheckout()">✕</button>
-            </div>
-
-            <div class="modal-section">
-                <div class="modal-section-title">Ringkasan Pakej</div>
-                <div class="package-summary">
-                    <div class="summary-row">
-                        <span>Pakej:</span>
-                        <span id="summaryPackage">-</span>
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Total Tasks</h3>
+                        <div class="value" id="totalTasks">0</div>
                     </div>
-                    <div class="summary-row">
-                        <span>Peranti:</span>
-                        <span id="summaryDevice">-</span>
+                    <div class="dashboard-card success">
+                        <h3>Completed</h3>
+                        <div class="value" id="completedCount">0</div>
                     </div>
-                    <div class="summary-row total">
-                        <span>Jumlah:</span>
-                        <span id="summaryPrice">RM0</span>
+                    <div class="dashboard-card warning">
+                        <h3>In Progress</h3>
+                        <div class="value" id="inProgressCount">0</div>
                     </div>
-                </div>
-            </div>
-
-            <form id="checkoutForm" onsubmit="handleCheckout(event)">
-                <div class="modal-section">
-                    <div class="modal-section-title">Maklumat Peribadi</div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Nama Penuh *</label>
-                        <input type="text" class="form-input" id="fullName" placeholder="Contoh: Ahmad Razak" required>
+                    <div class="dashboard-card danger">
+                        <h3>Overdue</h3>
+                        <div class="value" id="overdueCount">0</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Alamat Email *</label>
-                        <input type="email" class="form-input" id="email" placeholder="contoh@email.com" required>
+                    <div class="dashboard-card accent">
+                        <h3>Due This Week</h3>
+                        <div class="value" id="dueThisWeekCount">0</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label">No. Telefon WhatsApp *</label>
-                        <input type="tel" class="form-input" id="phone" placeholder="Contoh: 0177888030" required>
+                    <div class="dashboard-card">
+                        <h3>Avg Progress</h3>
+                        <div class="value" id="avgProgress">0%</div>
                     </div>
                 </div>
 
-                <div class="modal-section">
-                    <div class="modal-section-title">Kaedah Pembayaran</div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Pilih Kaedah Pembayaran *</label>
-                        <select class="form-select" id="paymentMethod" onchange="updatePaymentInstructions()" required>
-                            <option value="">-- Pilih Kaedah Pembayaran --</option>
-                            <option value="FPX Maybank">FPX Maybank</option>
-                            <option value="FPX CIMB">FPX CIMB</option>
-                            <option value="FPX Public Bank">FPX Public Bank</option>
-                            <option value="FPX RHB">FPX RHB</option>
-                            <option value="FPX Hong Leong">FPX Hong Leong</option>
-                            <option value="FPX Bank Islam">FPX Bank Islam</option>
-                            <option value="Touch n Go eWallet">Touch n Go eWallet</option>
-                            <option value="GrabPay">GrabPay</option>
-                            <option value="Boost">Boost</option>
-                            <option value="ShopeePay">ShopeePay</option>
-                            <option value="DuitNow QR">DuitNow QR</option>
-                            <option value="Pindah Bank Manual">Pindah Bank Manual</option>
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Tasks by Priority</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card danger">
+                        <h3>High Priority</h3>
+                        <div class="value" id="highPriorityCount">0</div>
+                    </div>
+                    <div class="dashboard-card warning">
+                        <h3>Medium Priority</h3>
+                        <div class="value" id="mediumPriorityCount">0</div>
+                    </div>
+                    <div class="dashboard-card success">
+                        <h3>Low Priority</h3>
+                        <div class="value" id="lowPriorityCount">0</div>
+                    </div>
+                </div>
+
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Tasks by Person</h2>
+                <div id="tasksByPerson" class="dashboard-grid"></div>
+            </div>
+
+            <!-- All Tasks Tab -->
+            <div id="allTasks" class="tab-content">
+                <div class="bg-white rounded-lg p-6 mb-6 shadow">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <input type="text" id="searchInput" placeholder="Search tasks..." class="border border-gray-300 rounded px-4 py-2" onkeyup="filterTasks()">
+                        <select id="statusFilter" class="border border-gray-300 rounded px-4 py-2" onchange="filterTasks()">
+                            <option value="">All Status</option>
+                            <option value="Not Started">Not Started</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Done">Done</option>
+                            <option value="On Hold">On Hold</option>
+                        </select>
+                        <select id="priorityFilter" class="border border-gray-300 rounded px-4 py-2" onchange="filterTasks()">
+                            <option value="">All Priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                        <select id="personFilter" class="border border-gray-300 rounded px-4 py-2" onchange="filterTasks()">
+                            <option value="">All People</option>
+                            <option value="Khairul">Khairul</option>
+                            <option value="Fauzi">Fauzi</option>
+                            <option value="TM Soo">TM Soo</option>
+                            <option value="Azman">Azman</option>
+                            <option value="CS Lai">CS Lai</option>
+                            <option value="Ashraf">Ashraf</option>
+                            <option value="Rahmat">Rahmat</option>
+                            <option value="Ahmad">Ahmad</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="modal-section" id="paymentInstructionsSection" style="display: none;">
-                    <div class="modal-section-title">Arahan Pembayaran</div>
-                    <div class="payment-instructions" id="paymentInstructions">
-                        Sila pilih kaedah pembayaran untuk melihat arahan.
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="hidden lg:grid grid-cols-7 gap-4 p-4 bg-gray-100 font-bold text-sm">
+                        <div>Project Name</div>
+                        <div>In-Charge</div>
+                        <div>Due Date</div>
+                        <div>Progress</div>
+                        <div>Status</div>
+                        <div>Priority</div>
+                        <div>Actions</div>
                     </div>
-                    <div class="qr-code-placeholder" id="qrCodePlaceholder" style="display: none;">
-                        📱 Scan DuitNow QR Code<br>
-                        (Placeholder - Guna aplikasi banking anda)
-                    </div>
+                    <div id="tasksList"></div>
                 </div>
+            </div>
 
-                <button type="submit" class="modal-button">Saya Sudah Bayar - Hantar Resit via WhatsApp</button>
+            <!-- My Tasks Tab -->
+            <div id="myTasks" class="tab-content">
+                <div class="mb-6">
+                    <select id="myTasksPersonFilter" class="border border-gray-300 rounded px-4 py-2 w-full md:w-64" onchange="filterMyTasks()">
+                        <option value="">Select a person...</option>
+                        <option value="Khairul">Khairul</option>
+                        <option value="Fauzi">Fauzi</option>
+                        <option value="TM Soo">TM Soo</option>
+                        <option value="Azman">Azman</option>
+                        <option value="CS Lai">CS Lai</option>
+                        <option value="Ashraf">Ashraf</option>
+                        <option value="Rahmat">Rahmat</option>
+                        <option value="Ahmad">Ahmad</option>
+                    </select>
+                </div>
+                <div id="myTasksList"></div>
+            </div>
+
+            <!-- Calendar Tab -->
+            <div id="calendar" class="tab-content">
+                <div class="bg-white rounded-lg p-6 shadow">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 id="calendarMonth" class="text-xl font-bold"></h2>
+                        <div class="flex gap-2">
+                            <button class="btn btn-secondary btn-small" onclick="previousMonth()">← Prev</button>
+                            <button class="btn btn-secondary btn-small" onclick="nextMonth()">Next →</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-2 mb-4">
+                        <div class="text-center font-bold text-sm">Sun</div>
+                        <div class="text-center font-bold text-sm">Mon</div>
+                        <div class="text-center font-bold text-sm">Tue</div>
+                        <div class="text-center font-bold text-sm">Wed</div>
+                        <div class="text-center font-bold text-sm">Thu</div>
+                        <div class="text-center font-bold text-sm">Fri</div>
+                        <div class="text-center font-bold text-sm">Sat</div>
+                    </div>
+                    <div id="calendarGrid" class="calendar-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="taskModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-6 primary-text">Add New Task</h2>
+            <form id="taskForm" onsubmit="saveTask(event)">
+                <div class="form-group">
+                    <label for="projectName">Project/Task Name *</label>
+                    <input type="text" id="projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="inCharge">In-Charge *</label>
+                    <select id="inCharge" required>
+                        <option value="">Select a person</option>
+                        <option value="Khairul">Khairul</option>
+                        <option value="Fauzi">Fauzi</option>
+                        <option value="TM Soo">TM Soo</option>
+                        <option value="Azman">Azman</option>
+                        <option value="CS Lai">CS Lai</option>
+                        <option value="Ashraf">Ashraf</option>
+                        <option value="Rahmat">Rahmat</option>
+                        <option value="Ahmad">Ahmad</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Due Date *</label>
+                    <input type="date" id="dueDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="progress">Progress: <span id="progressValue">0</span>%</label>
+                    <input type="range" id="progress" class="progress-slider" min="0" max="100" value="0" oninput="updateProgressValue()">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="Not Started">Not Started</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Done">Done</option>
+                        <option value="On Hold">On Hold</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <select id="priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description / Notes</label>
+                    <textarea id="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="createdBy">Created By (optional)</label>
+                    <input type="text" id="createdBy" placeholder="Your name">
+                </div>
+                <div class="flex gap-4">
+                    <button type="submit" class="btn btn-primary flex-1">Save Task</button>
+                    <button type="button" class="btn btn-secondary flex-1" onclick="closeTaskModal()">Cancel</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- THANK YOU SECTION -->
-    <section class="thank-you" id="thankYouSection">
-        <div class="thank-you-container">
-            <div class="thank-you-icon">✓</div>
-            <h2>Terima Kasih!</h2>
-            <p>Pesanan anda telah dihantar ke WhatsApp kami. Admin kami akan memproses pesanan anda dalam masa 5-15 minit.</p>
-            
-            <div class="order-details">
-                <div class="order-detail-row">
-                    <span class="order-detail-label">Order ID:</span>
-                    <span class="order-detail-value" id="orderIdDisplay">-</span>
-                </div>
-                <div class="order-detail-row">
-                    <span class="order-detail-label">Nama:</span>
-                    <span class="order-detail-value" id="orderNameDisplay">-</span>
-                </div>
-                <div class="order-detail-row">
-                    <span class="order-detail-label">Pakej:</span>
-                    <span class="order-detail-value" id="orderPackageDisplay">-</span>
-                </div>
-                <div class="order-detail-row">
-                    <span class="order-detail-label">Jumlah:</span>
-                    <span class="order-detail-value" id="orderPriceDisplay">-</span>
-                </div>
-            </div>
-
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                Sila tunggu balasan dari admin kami di WhatsApp untuk mendapatkan maklumat login dan panduan pemasangan.
-            </p>
-
-            <button class="thank-you-button" onclick="backToHome()">Kembali ke Halaman Utama</button>
-        </div>
-    </section>
-
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+        // Configuration
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOphjBQ9z-HjMB_QeD_y5mEhytesZ2X-j0AVL3YMIZznncp4JcHdplYfW2mxkmbOro/exec';
+        let allTasks = [];
+        let currentEditingId = null;
+        let currentMonth = new Date();
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Scroll to packages
-        function scrollToPackages() {
-            document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Checkout Modal Functions
-        let selectedPackage = '';
-        let selectedPrice = 0;
-        let selectedDevice = '';
-
-        function openCheckout(packageName, price, device) {
-            selectedPackage = packageName;
-            selectedPrice = price;
-            selectedDevice = device;
-
-            document.getElementById('summaryPackage').textContent = packageName;
-            document.getElementById('summaryDevice').textContent = device;
-            document.getElementById('summaryPrice').textContent = 'RM' + price;
-
-            document.getElementById('checkoutModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCheckout() {
-            document.getElementById('checkoutModal').classList.remove('active');
-            document.getElementById('checkoutForm').reset();
-            document.getElementById('paymentInstructionsSection').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('checkoutModal').addEventListener('click', (e) => {
-            if (e.target.id === 'checkoutModal') {
-                closeCheckout();
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_DEPLOYMENT_URL_HERE') {
+                document.getElementById('setupScreen').style.display = 'flex';
+                document.getElementById('appContainer').style.display = 'none';
+            } else {
+                document.getElementById('setupScreen').style.display = 'none';
+                document.getElementById('appContainer').style.display = 'block';
+                refreshData();
+                setInterval(refreshData, 60000); // Auto-refresh every 60 seconds
+            }
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
             }
         });
 
-        // Update Payment Instructions
-        function updatePaymentInstructions() {
-            const method = document.getElementById('paymentMethod').value;
-            const section = document.getElementById('paymentInstructionsSection');
-            const instructions = document.getElementById('paymentInstructions');
-            const qrPlaceholder = document.getElementById('qrCodePlaceholder');
+        // Fetch all tasks from Google Sheet
+        async function refreshData() {
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL);
+                allTasks = await response.json();
+                updateDashboard();
+                renderAllTasks();
+                renderCalendar();
+                showToast('Data refreshed', 'success');
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                showToast('Error loading data', 'error');
+            }
+        }
 
-            if (!method) {
-                section.style.display = 'none';
+        // Update dashboard cards
+        function updateDashboard() {
+            const now = new Date();
+            const weekFromNow = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+            const total = allTasks.length;
+            const completed = allTasks.filter(t => t.status === 'Done').length;
+            const inProgress = allTasks.filter(t => t.status === 'In Progress').length;
+            const overdue = allTasks.filter(t => {
+                const dueDate = new Date(t.dueDate);
+                return dueDate < now && t.status !== 'Done';
+            }).length;
+            const dueThisWeek = allTasks.filter(t => {
+                const dueDate = new Date(t.dueDate);
+                return dueDate >= now && dueDate <= weekFromNow && t.status !== 'Done';
+            }).length;
+            const avgProgress = total > 0 ? Math.round(allTasks.reduce((sum, t) => sum + (t.progress || 0), 0) / total) : 0;
+
+            const highPriority = allTasks.filter(t => t.priority === 'High').length;
+            const mediumPriority = allTasks.filter(t => t.priority === 'Medium').length;
+            const lowPriority = allTasks.filter(t => t.priority === 'Low').length;
+
+            document.getElementById('totalTasks').textContent = total;
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('inProgressCount').textContent = inProgress;
+            document.getElementById('overdueCount').textContent = overdue;
+            document.getElementById('dueThisWeekCount').textContent = dueThisWeek;
+            document.getElementById('avgProgress').textContent = avgProgress + '%';
+            document.getElementById('highPriorityCount').textContent = highPriority;
+            document.getElementById('mediumPriorityCount').textContent = mediumPriority;
+            document.getElementById('lowPriorityCount').textContent = lowPriority;
+
+            // Tasks by person
+            const people = ['Khairul', 'Fauzi', 'TM Soo', 'Azman', 'CS Lai', 'Ashraf', 'Rahmat', 'Ahmad'];
+            const tasksByPersonDiv = document.getElementById('tasksByPerson');
+            tasksByPersonDiv.innerHTML = '';
+            people.forEach(person => {
+                const count = allTasks.filter(t => t.inCharge === person).length;
+                const card = document.createElement('div');
+                card.className = 'dashboard-card';
+                card.innerHTML = `<h3>${person}</h3><div class="value">${count}</div>`;
+                tasksByPersonDiv.appendChild(card);
+            });
+        }
+
+        // Render all tasks
+        function renderAllTasks() {
+            const tasksList = document.getElementById('tasksList');
+            if (allTasks.length === 0) {
+                tasksList.innerHTML = '<div class="no-tasks">No tasks found. Add one to get started!</div>';
                 return;
             }
 
-            section.style.display = 'block';
-            qrPlaceholder.style.display = 'none';
+            tasksList.innerHTML = allTasks.map(task => createTaskElement(task)).join('');
+        }
 
-            const instructionsMap = {
-                'FPX Maybank': '<strong>Maybank FPX</strong><br>Sila buka aplikasi Maybank anda dan lakukan pemindahan kepada:<br><strong>Akaun: 1234567890</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'FPX CIMB': '<strong>CIMB FPX</strong><br>Sila buka aplikasi CIMB anda dan lakukan pemindahan kepada:<br><strong>Akaun: 0987654321</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'FPX Public Bank': '<strong>Public Bank FPX</strong><br>Sila buka aplikasi Public Bank anda dan lakukan pemindahan kepada:<br><strong>Akaun: 1122334455</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'FPX RHB': '<strong>RHB FPX</strong><br>Sila buka aplikasi RHB anda dan lakukan pemindahan kepada:<br><strong>Akaun: 5544332211</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'FPX Hong Leong': '<strong>Hong Leong FPX</strong><br>Sila buka aplikasi Hong Leong anda dan lakukan pemindahan kepada:<br><strong>Akaun: 9876543210</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'FPX Bank Islam': '<strong>Bank Islam FPX</strong><br>Sila buka aplikasi Bank Islam anda dan lakukan pemindahan kepada:<br><strong>Akaun: 1357924680</strong><br>Atas Nama: <strong>KAI TV</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'Touch n Go eWallet': '<strong>Touch n Go eWallet</strong><br>Sila buka aplikasi Touch n Go anda dan scan QR code atau pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'GrabPay': '<strong>GrabPay</strong><br>Sila buka aplikasi Grab anda dan pilih GrabPay, kemudian pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'Boost': '<strong>Boost</strong><br>Sila buka aplikasi Boost anda dan pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'ShopeePay': '<strong>ShopeePay</strong><br>Sila buka aplikasi Shopee anda dan pilih ShopeePay, kemudian pindahkan kepada:<br><strong>Nomor: 0177888030</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>',
-                'DuitNow QR': '<strong>DuitNow QR</strong><br>Sila scan QR code di bawah menggunakan aplikasi banking anda:',
-                'Pindah Bank Manual': '<strong>Pindah Bank Manual</strong><br>Sila lakukan pemindahan bank ke:<br><strong>Akaun: 1234567890</strong><br>Atas Nama: <strong>KAI TV</strong><br>Bank: <strong>Maybank</strong><br>Jumlah: <strong>RM' + selectedPrice + '</strong>'
-            };
+        // Create task element
+        function createTaskElement(task) {
+            const dueDate = new Date(task.dueDate);
+            const now = new Date();
+            const isOverdue = dueDate < now && task.status !== 'Done';
+            const dueDateStr = dueDate.toLocaleDateString();
 
-            instructions.innerHTML = instructionsMap[method] || 'Arahan tidak tersedia';
-            
-            if (method === 'DuitNow QR') {
-                qrPlaceholder.style.display = 'block';
+            return `
+                <div class="task-row">
+                    <div class="font-semibold text-gray-800">${task.projectName}</div>
+                    <div class="text-gray-600">${task.inCharge}</div>
+                    <div class="text-sm ${isOverdue ? 'text-red-600 font-bold' : 'text-gray-600'}">${dueDateStr}</div>
+                    <div>
+                        <div class="progress-bar" style="width: 100%; margin-bottom: 4px;"><div class="progress-bar" style="width: ${task.progress || 0}%; background: linear-gradient(90deg, #1e3a8a, #f97316);"></div></div>
+                        <span class="text-xs text-gray-600">${task.progress || 0}%</span>
+                    </div>
+                    <div><span class="badge badge-${getStatusClass(task.status)}">${task.status}</span></div>
+                    <div><span class="badge badge-${getPriorityClass(task.priority)}">${task.priority}</span></div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary btn-small" onclick="editTask('${task.id}')">✏️ Edit</button>
+                        <button class="btn btn-success btn-small" onclick="markAsDone('${task.id}')" ${task.status === 'Done' ? 'disabled' : ''}>✓ Done</button>
+                        <button class="btn btn-danger btn-small" onclick="deleteTask('${task.id}')">🗑️ Delete</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Filter tasks
+        function filterTasks() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const status = document.getElementById('statusFilter').value;
+            const priority = document.getElementById('priorityFilter').value;
+            const person = document.getElementById('personFilter').value;
+
+            const filtered = allTasks.filter(task => {
+                const matchesSearch = task.projectName.toLowerCase().includes(search) || task.description.toLowerCase().includes(search);
+                const matchesStatus = !status || task.status === status;
+                const matchesPriority = !priority || task.priority === priority;
+                const matchesPerson = !person || task.inCharge === person;
+                return matchesSearch && matchesStatus && matchesPriority && matchesPerson;
+            });
+
+            const tasksList = document.getElementById('tasksList');
+            if (filtered.length === 0) {
+                tasksList.innerHTML = '<div class="no-tasks">No tasks match your filters.</div>';
+                return;
+            }
+
+            tasksList.innerHTML = filtered.map(task => createTaskElement(task)).join('');
+        }
+
+        // Filter my tasks
+        function filterMyTasks() {
+            const person = document.getElementById('myTasksPersonFilter').value;
+            const filtered = person ? allTasks.filter(task => task.inCharge === person) : [];
+
+            const myTasksList = document.getElementById('myTasksList');
+            if (filtered.length === 0) {
+                myTasksList.innerHTML = '<div class="no-tasks">No tasks assigned to this person.</div>';
+                return;
+            }
+
+            myTasksList.innerHTML = `
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="hidden lg:grid grid-cols-7 gap-4 p-4 bg-gray-100 font-bold text-sm">
+                        <div>Project Name</div>
+                        <div>Due Date</div>
+                        <div>Progress</div>
+                        <div>Status</div>
+                        <div>Priority</div>
+                        <div>Description</div>
+                        <div>Actions</div>
+                    </div>
+                    ${filtered.map(task => createTaskElement(task)).join('')}
+                </div>
+            `;
+        }
+
+        // Render calendar
+        function renderCalendar() {
+            const year = currentMonth.getFullYear();
+            const month = currentMonth.getMonth();
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDayOfWeek = firstDay.getDay();
+
+            document.getElementById('calendarMonth').textContent = currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+
+            // Previous month's days
+            const prevMonth = new Date(year, month, 0);
+            const daysInPrevMonth = prevMonth.getDate();
+            for (let i = startingDayOfWeek - 1; i >= 0; i--) {
+                const day = daysInPrevMonth - i;
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'calendar-day other-month';
+                dayDiv.textContent = day;
+                calendarGrid.appendChild(dayDiv);
+            }
+
+            // Current month's days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'calendar-day';
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const tasksOnDay = allTasks.filter(t => t.dueDate.startsWith(dateStr));
+
+                let html = `<div class="font-bold text-sm mb-2">${day}</div>`;
+                tasksOnDay.forEach(task => {
+                    const color = task.priority === 'High' ? '#ef4444' : task.priority === 'Medium' ? '#f59e0b' : '#10b981';
+                    html += `<div style="font-size: 10px; margin-bottom: 2px; color: ${color};">• ${task.projectName.substring(0, 15)}</div>`;
+                });
+
+                dayDiv.innerHTML = html;
+                calendarGrid.appendChild(dayDiv);
+            }
+
+            // Next month's days
+            const remainingDays = 42 - (startingDayOfWeek + daysInMonth);
+            for (let day = 1; day <= remainingDays; day++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'calendar-day other-month';
+                dayDiv.textContent = day;
+                calendarGrid.appendChild(dayDiv);
             }
         }
 
-        // Generate Order ID
-        function generateOrderId() {
-            const timestamp = Date.now().toString().slice(-5);
-            return 'KAI' + timestamp;
+        // Calendar navigation
+        function previousMonth() {
+            currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1);
+            renderCalendar();
         }
 
-        // Handle Checkout
-        function handleCheckout(event) {
+        function nextMonth() {
+            currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1);
+            renderCalendar();
+        }
+
+        // Open add task modal
+        function openAddTaskModal() {
+            currentEditingId = null;
+            document.getElementById('modalTitle').textContent = 'Add New Task';
+            document.getElementById('taskForm').reset();
+            document.getElementById('progress').value = 0;
+            document.getElementById('progressValue').textContent = '0';
+            document.getElementById('taskModal').classList.add('active');
+        }
+
+        // Close task modal
+        function closeTaskModal() {
+            document.getElementById('taskModal').classList.remove('active');
+            currentEditingId = null;
+        }
+
+        // Edit task
+        function editTask(id) {
+            const task = allTasks.find(t => t.id === id);
+            if (!task) return;
+
+            currentEditingId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Task';
+            document.getElementById('projectName').value = task.projectName;
+            document.getElementById('inCharge').value = task.inCharge;
+            document.getElementById('dueDate').value = task.dueDate;
+            document.getElementById('progress').value = task.progress || 0;
+            document.getElementById('progressValue').textContent = task.progress || 0;
+            document.getElementById('status').value = task.status;
+            document.getElementById('priority').value = task.priority;
+            document.getElementById('description').value = task.description;
+            document.getElementById('createdBy').value = task.createdBy;
+            document.getElementById('taskModal').classList.add('active');
+        }
+
+        // Save task
+        async function saveTask(event) {
             event.preventDefault();
 
-            const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const paymentMethod = document.getElementById('paymentMethod').value;
+            const task = {
+                id: currentEditingId || '',
+                projectName: document.getElementById('projectName').value,
+                inCharge: document.getElementById('inCharge').value,
+                dueDate: document.getElementById('dueDate').value,
+                progress: parseInt(document.getElementById('progress').value),
+                status: document.getElementById('status').value,
+                priority: document.getElementById('priority').value,
+                description: document.getElementById('description').value,
+                createdBy: document.getElementById('createdBy').value
+            };
 
-            if (!fullName || !email || !phone || !paymentMethod) {
-                alert('Sila isi semua maklumat yang diperlukan.');
-                return;
-            }
+            const action = currentEditingId ? 'update' : 'add';
 
-            const orderId = generateOrderId();
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action, task })
+                });
 
-            // Build WhatsApp message
-            const message = `Hi KAI TV! Saya nak confirm pesanan:\n\nOrder ID: #${orderId}\nNama: ${fullName}\nEmail: ${email}\nTelefon: ${phone}\nPakej: ${selectedPackage}\nHarga: RM${selectedPrice}\nKaedah Bayaran: ${paymentMethod}\n\nResit pembayaran akan saya hantar selepas ini. Terima kasih!`;
-
-            // Encode message for WhatsApp
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/60177888030?text=${encodedMessage}`;
-
-            // Display thank you section
-            document.getElementById('orderIdDisplay').textContent = '#' + orderId;
-            document.getElementById('orderNameDisplay').textContent = fullName;
-            document.getElementById('orderPackageDisplay').textContent = selectedPackage;
-            document.getElementById('orderPriceDisplay').textContent = 'RM' + selectedPrice;
-
-            // Close modal and show thank you
-            closeCheckout();
-            document.getElementById('thankYouSection').classList.add('active');
-            document.body.style.overflow = 'hidden';
-
-            // Open WhatsApp in new tab
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 500);
-        }
-
-        // Back to Home
-        function backToHome() {
-            document.getElementById('thankYouSection').classList.remove('active');
-            document.getElementById('checkoutForm').reset();
-            document.body.style.overflow = 'auto';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // FAQ Toggle
-        function toggleFaq(element) {
-            const faqItem = element.parentElement;
-            const isActive = faqItem.classList.contains('active');
-
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Toggle current item
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                const result = await response.json();
+                if (result.success) {
+                    showToast(result.message, 'success');
+                    closeTaskModal();
+                    refreshData();
+                } else {
+                    showToast(result.message, 'error');
                 }
-            });
-        });
+            } catch (error) {
+                console.error('Error saving task:', error);
+                showToast('Error saving task', 'error');
+            }
+        }
+
+        // Mark task as done
+        async function markAsDone(id) {
+            const task = allTasks.find(t => t.id === id);
+            if (!task) return;
+
+            task.status = 'Done';
+            task.progress = 100;
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'update', task })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showToast('Task marked as done', 'success');
+                    refreshData();
+                } else {
+                    showToast(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error updating task:', error);
+                showToast('Error updating task', 'error');
+            }
+        }
+
+        // Delete task
+        async function deleteTask(id) {
+            if (!confirm('Are you sure you want to delete this task?')) return;
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'delete', task: { id } })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showToast('Task deleted', 'success');
+                    refreshData();
+                } else {
+                    showToast(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error deleting task:', error);
+                showToast('Error deleting task', 'error');
+            }
+        }
+
+        // Update progress value display
+        function updateProgressValue() {
+            document.getElementById('progressValue').textContent = document.getElementById('progress').value;
+        }
+
+        // Switch tabs
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Show toast notification
+        function showToast(message, type) {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Helper functions
+        function getStatusClass(status) {
+            const map = { 'Done': 'success', 'In Progress': 'warning', 'Not Started': 'info', 'On Hold': 'danger' };
+            return map[status] || 'info';
+        }
+
+        function getPriorityClass(priority) {
+            const map = { 'High': 'high', 'Medium': 'medium', 'Low': 'low' };
+            return map[priority] || 'medium';
+        }
     </script>
 </body>
 </html>
